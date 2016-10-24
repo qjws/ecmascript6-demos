@@ -11,4 +11,5 @@ These demos are purposely written in a simple and clear style. You will find no 
 ## Link
 ### Demo01: Traceur 转码器  ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo01))
 ### Demo02: let 和 const 命令 ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo02))
+### Demo03: 解构赋值 ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo03))
 ### Demo04: 关于函数 ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo04))
