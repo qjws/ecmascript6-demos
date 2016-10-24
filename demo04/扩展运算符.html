@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>扩展运算符</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>扩展运算符</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 扩展运算符（spread）是三个点（...）。它好比rest参数的逆运算，将一个数组转为用逗号分隔的参数序列。");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        console.log(...[1, 2, 3]);          // 1 2 3
+        console.log(1, ...[2, 3, 4], 5);    // 1 2 3 4 5
+
+        function add(x, y) {
+            return x + y;
+        }
+
+        let sum = add(...[100, 200]) // 300
+        console.log(sum);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] 扩展运算符 应用");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        console.info("=> 合并数组");
+        const arr1 = [1, 2];
+        const arr2 = [3, 4, 5];
+        const arr3 = [6, 7, 8, 9];
+        let arr = [...arr1, ...arr2, ...arr3];  // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        console.info(arr);
+
+        console.info("=> 与解构赋值结合");
+        const list = [1,2,3,4,5];
+        const[x, ...y] = list;
+        console.info(x);    // 1
+        console.info(y);    // [2, 3, 4, 5]
+
+        console.info("=> 函数的返回值");
+        console.info("");
+
+        console.info("=> 字符串");
+        console.info(..."LiangGzone");
+
+        console.info("=> 实现了Iterator接口的对象");
+        let json = {
+            '0': 'a',
+            '1': 'b',
+            '2': 'c',
+            length: 3
+        };
+        let arrayList1 = Array.from(json);
+        console.info(arrayList1);
+        let arrayList2 = [...arrayList1];
+        console.info(arrayList2);
+
+        console.info("=> Map和Set结构，Generator函数");
+        let map = new Map([
+          [1, 'one'],
+          [2, 'two'],
+          [3, 'three'],
+        ]);
+
+        console.info([...map.keys()]);
+        console.info([...map.values()]);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+</body>
+
+</html>

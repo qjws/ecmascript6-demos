@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>箭头函数</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>箭头函数</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        console.info("=> ES5 写法");
+        var sum1 = function(num1, num2) {
+            return num1 + num2;
+        };
+        console.log(sum1(100, 100));
+
+        console.info("* 1.改造成箭头函数");
+        console.info("=> ES6 写法");
+        var sum2 = (num1, num2) => { return num1 + num2;};
+        console.log(sum2(100, 100));
+
+        console.info("* 2.如果一个lambda表达式的代码块, 只是return后面跟一个表达式，那么还可以进一步简化。");
+        console.info("=> ES6 写法");
+        var sum3 = (num1, num2) => num1 + num2;
+        console.log(sum3(100, 100));
+
+        console.info("* 3.如果某个方法只含有一个参数，并且该参数的类型可以被推导出来，你甚至可以省略小括号。");
+        console.info("=> ES5 写法");
+        var curf1 = function(v) {
+            return v;
+        };
+        console.log(curf1(100));
+
+        console.info("=> ES6 写法");
+        var curf2 = v => v;
+        console.log(curf2(100));
+
+        console.info("* 4.如果lambda表达式没有参数，你仍可以提供一对空的小括号，如同不含参数的方法。");
+        console.info("=> ES5 写法");
+        var f1 = function() {
+            return "梁桂钊";
+        };
+        console.log(f1());
+
+        console.info("=> ES6 写法");
+        var f2 = () => "梁桂钊";
+        console.log(f2());
+
+        console.info("* 5.如果箭头函数直接返回一个对象，必须在对象外面加上括号。");
+        console.info("=> ES5 写法");
+        var f3 = function() {
+            return {
+                real_name: "梁桂钊",
+                nick_name: "LiangGzone"
+            }
+        };
+        console.log(f3());
+
+        console.info("=> ES6 写法");
+        var f4 = () => ({real_name: "梁桂钊",nick_name: "LiangGzone"});
+        console.log(f4());
+
+        console.info("* 6.我们还可以使用到ES6解构赋值特性。");
+        console.info("=> ES5 写法");
+        var f5 = function(person) {
+            return person.first + ' ' + person.last;
+        }
+
+        console.info("=> ES6 写法");
+        const f6 = ({ first, last }) => first + ' ' + last;
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] 实例应用");
+        console.info("// 箭头函数使得表达更加简洁，从而简化了我们的代码。");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        console.info("* 1.回调函数。");
+        console.info("=> ES5 写法");
+        var x1 = [1,2,3].map(function (x) {
+            return x * x;
+        });
+        console.info(x1);
+
+        console.info("=> ES6 写法");
+        var x2 = [1,2,3].map(x => x * x);
+        console.info(x2);
+
+        console.info("* 2.rest参数结合。");
+        console.info("=> ES5 写法");
+        var x3 = function(...nums){
+            return nums;
+        }
+        console.info(x3(512, 1024));
+
+        console.info("=> ES6 写法");
+        var x4 = (...nums) => nums;
+        console.info(x4(512, 1024));
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+</body>
+
+</html>
