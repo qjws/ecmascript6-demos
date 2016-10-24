@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>函数参数的解构赋值</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+<body>
+    <h1>函数参数的解构赋值</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        function add([x, y]){
+            return x + y;
+        }
+
+        console.info(add([1, 2]));
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] 默认值");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        function func({x = 0, y = 0} = {}){
+            return [x, y];
+        }
+
+        console.info(func());
+        console.info(func({}));
+        console.info(func({x:100}));
+        console.info(func({y:100}));
+        console.info(func({x:100, y:100}));
+
+        console.info("====================");
+
+        function func2({x, y} = {x : 1, y : 1}){
+            return [x, y];
+        }
+
+        console.info(func2());
+        console.info(func2({}));
+        console.info(func2({x:100}));
+        console.info(func2({y:100}));
+        console.info(func2({x:100, y:100}));
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>const使用</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>const使用</h1>
+    <script type="module">
+        // const基本用法
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] const基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        const pi = 3.1415;
+        console.info(pi);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        // const对象本身是可变
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] 对象本身是可变");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        const person = {};
+        person.name = 'LiangGzone';
+        person.age = 25;
+
+        console.info(person.name);
+        console.info(person.age);
+        console.info(person);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        //const对象本身是可变
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [3] 对象冻结");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        const person = Object.freeze({
+            "name": "LiangGzone",
+            "age": 25
+        });
+
+        console.info(person.name);
+        console.info(person.age);
+        console.info(person);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+</body>
+
+</html>

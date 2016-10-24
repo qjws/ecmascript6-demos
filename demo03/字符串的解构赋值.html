@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>字符串的解构赋值</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+<body>
+    <h1>字符串的解构赋值</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        const [a, b, c, d, e] = 'hello';
+        console.info(a);
+        console.info(b);
+        console.info(c);
+        console.info(d);
+        console.info(e);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] 长度用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        let {length} = 'lianggzone';
+        console.info(length);
+
+        let {length : len} = 'lianggzone';
+        console.info(len);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+</body>
+</html>

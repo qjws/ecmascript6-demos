@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>解构赋值的用途</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+<body>
+    <h1>解构赋值的用途</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 交换变量的值");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        let x = 100;
+        let y = 200;
+        console.info(x);
+        console.info(y);
+
+        [x, y] = [y, x];
+
+        console.info(x);
+        console.info(y);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] 从函数返回多个值");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        function func1(){
+            return [1, 2, 3];
+        }
+        let [x, y, z] = func1();
+        console.info(x);
+        console.info(y);
+        console.info(z);
+
+        function func2(){
+            return {
+                id : 723181,
+                name : "lianggzone",
+                age : 25
+            };
+        }
+        let {id, name ,age} = func2();
+        console.info(id);
+        console.info(name);
+        console.info(age);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [3] 函数参数的定义");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        function func1([x, y, z]){
+            console.info([x, y, z]);
+        }
+        func1([1, 1, 1]);
+
+        function func2({name, age}){
+            console.info(name);
+            console.info(age);
+        }
+        func2({name: "lianggzone", age: 25});
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [4] 提取JSON数据");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        var jsonData = {
+            code: 200,
+            message: "OK",
+            data: [867, 5309]
+        };
+
+        let { code, message, data: resultData } = jsonData;
+
+        console.log(code, message, resultData);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [5] 函数参数的默认值");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        // jQuery.ajax = function (url, {
+        //   async = true,
+        //   beforeSend = function () {},
+        //   cache = true,
+        //   complete = function () {},
+        //   crossDomain = false,
+        //   global = true,
+        //   // ... more config
+        // }) {
+        //   // ... do stuff
+        // };
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [6] 遍历Map结构");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        var map = new Map();
+        map.set("name", "lianggzone");
+        map.set("age", 25);
+
+        console.info("=> println [key， value]");
+        for(let [key, value] of map){
+            console.info(key + " : " + value);
+        }
+
+        console.info("=> println key");
+        for(let [key] of map){
+            console.info(key);
+        }
+
+        console.info("=> println value");
+        for(let [,value] of map){
+            console.info(value);
+        }
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [7] 输入模块的指定方法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        //const { SourceMapConsumer, SourceNode } = require("source-map");
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+
+
+</html>

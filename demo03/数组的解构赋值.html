@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>数组的解构赋值</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+<body>
+    <h1>数组的解构赋值</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        console.info("=> ES5");
+        var a = 1;
+        var b = 2;
+        var c = 3;
+        console.info(a);
+
+        console.info("=> ES6");
+        var [a,b,c] = [1,2,3];
+        console.info(a);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] 复杂用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        let [foo, [[bar], baz]] = [1, [[2], 3]];
+        console.info(foo); // 1
+        console.info(bar); // 2
+        console.info(baz); // 3
+
+        let [ , , third] = ["first", "second", "third"];
+        console.info(third); // third
+
+        let [head, ...tail] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        console.info(head); // 1
+        console.info(tail); // [2, 3, 4, 5, 6, 7, 8, 9]
+
+        let [x, y, ...z] = ['a'];
+        console.info(x); // "a"
+        console.info(y); // undefined
+        console.info(z); // []
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [3] 不完全解构");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        let [x, y] = [1, 2, 3];
+        console.info(x); // 1
+        console.info(y); // 2
+
+        let [a, [b], d] = [1, [2, 3], 4];
+        console.info(a); // 1
+        console.info(b); // 2
+        console.info(d); // 4
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [4] 默认值");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        var [name = "lianggzone"] = [];
+        console.info(name); // lianggzone
+
+        var [x, y = 'b'] = ['a'];
+        console.info(x); // a
+        console.info(y); // b
+
+        var [x = 'b', y] = ['a'];
+        console.info(x); // b
+        console.info(y); // undefined
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+</body>
+</html>

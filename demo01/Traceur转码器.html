@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Traceur 转码器</title>
+
+    <!-- 加载Traceur编译器 -->
+    <script src="../js/traceur.js" type="text/javascript"></script>
+    <!--<script src="http://google.github.io/traceur-compiler/bin/traceur.js" type="text/javascript"></script>-->
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="../js/BrowserSystem.js"></script>
+    <!--<script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>-->
+    <script src="../js/bootstrap.js" type="text/javascript"></script>
+    <!--<script src="http://google.github.io/traceur-compiler/src/bootstrap.js" type="text/javascript"></script>-->
+</head>
+
+<body>
+    <h1>Traceur 转码器</h1>
+    <p>注意 script 标签的 type 属性的值是 module 或者 traceur ，而不是 text/javascript。</p>
+    <p>这是 Traceur 编译器识别 ES6 代码的标识，编译器会自动将所有 type=module 的代码编译为 ES5，然后再交给浏览器执行。</p>
+    <script type="module">
+        class Calc {
+            constructor(message) {
+              this.message = message;
+            }
+            add(a, b){
+                var element = document.querySelector('#message');
+                element.innerHTML = a + b;
+            }
+        }
+        var c = new Calc("Calc : ");
+        c.add(4, 5);
+    </script>
+
+    <h2>结果：<span id="message"></span></h2>
+</body>
+
+</html>
