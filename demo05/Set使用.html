@@ -74,11 +74,97 @@
         console.log(set.has(2));    // false
 
         console.info("将Set结构转为数组");
-        var items = new Set([1, 2, 3, 4, 5]);
-        console.info("=>方法1")；
-        console.info();
-        var array = Array.from(items);
-        console.info();
+        let items = new Set([1, 2, 3, 4, 5]);
+        console.info("=>方法1");
+        console.log([...items]);
+
+        console.info("=>方法2");
+        console.log(Array.from(items));
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [3] 遍历操作");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        let set = new Set(['red', 'green', 'blue']);
+
+        for (let item of set.keys()) {
+            console.log(item);
+        }
+
+        for (let item of set.values()) {
+          console.log(item);
+        }
+
+        for (let item of set.entries()) {
+          console.log(item);
+        }
+
+        for (let x of set) {
+            console.log(x);
+        }
+
+        set.forEach((key, value) => console.log(value));
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [4] 应用场景");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        {
+            console.info("=>set转化array");
+            let set = new Set(['red', 'green', 'blue']);
+            let arr = [...set];
+            console.log(arr);
+        }
+
+        {
+            console.info("=>array转化set");
+            let arr = ['red', 'green', 'blue'];
+            let set = new Set(arr);
+            console.log(set);
+        }
+
+        {
+            console.info("=>数组的map和filter方法也可以用于Set");
+            let set = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+            let set2 = new Set([...set].map(x => x + 10));
+            console.log(set2);
+
+            let set3 = new Set([...set].filter(x => (x % 2) == 0));
+            console.log(set3);
+        }
+
+        {
+            console.info("=>并集（Union）、交集（Intersect）和差集");
+            let a = new Set([1, 2, 3]);
+            let b = new Set([4, 3, 2]);
+
+            // 并集
+            let union = new Set([...a, ...b]);
+            console.log(union);
+            // Set {1, 2, 3, 4}
+
+            // 交集
+            let intersect = new Set([...a].filter(x => b.has(x)));
+            console.log(intersect);
+            // set {2, 3}
+
+            // 差集
+            let difference = new Set([...a].filter(x => !b.has(x)));
+            console.log(difference);
+            // Set {1}
+        }
+
 
         console.info("//---------------------------------------------------------------------");
         console.info("");
