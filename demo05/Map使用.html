@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Map使用</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>Map使用</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        var map = new Map();
+        map.set("key1", {p: 'Hello World'});
+        map.set("key2", "LiangGzone");
+        console.log(map.get("key1"));
+        console.log(map.get("key2"));
+
+        console.log(map.has("key2"));     // true
+        console.log(map.delete("key2"));  // true
+        console.log(map.has("key2"));     // false
+
+
+        var map2 = new Map([
+            ['name', '张三'],
+            ['title', 'Author']
+        ]);
+
+        console.log(map2.size); // 2
+        console.log(map2.has('name')); // true
+        console.log(map2.get('name')); // "张三"
+        console.log(map2.has('title')); // true
+        console.log(map2.get('title')); // "Author"
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] Map实例的属性和方法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        var map = new Map([
+            ['name', '张三'],
+            ['title', 'Author']
+        ]);
+
+        console.log(map.size);   // 2
+
+        console.log(map.has("name")); // true
+        console.log(map.has("age"));  // false
+
+        console.log(map.delete("title")); // true
+        console.log(map.has("title"));    // false
+
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [3] 遍历操作");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        var map = new Map([
+            ['name', '张三'],
+            ['title', 'Author']
+        ]);
+        for (let item of map.keys()) {
+            console.log(item);
+        }
+
+        for (let item of map.values()) {
+          console.log(item);
+        }
+
+        for (let item of map.entries()) {
+          console.log(item);
+        }
+
+
+        map.forEach((key, value) => console.log(value));
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [4] 应用场景");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        {
+            console.info("=>map转化array");
+            var map = new Map([
+                ['name', '张三'],
+                ['title', 'Author']
+            ]);
+            let arr = [...map];
+            console.log(arr);
+        }
+
+        {
+            console.info("=>array转化map");
+            let arr = [['name', '张三'],['title', 'Author']];
+            let map = new Map(arr);
+            console.log(map);
+        }
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+</body>
+
+</html>
