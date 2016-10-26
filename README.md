@@ -8,6 +8,7 @@ These demos are purposely written in a simple and clear style. You will find no 
 1. Demo03: 解构赋值
 1. Demo04: 关于函数
 1. Demo05: Set和Map数据结构
+1. Demo06: Iterator和for...of循环
 
 ## Link
 ### Demo01: Traceur 转码器  ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo01))
@@ -15,3 +16,4 @@ These demos are purposely written in a simple and clear style. You will find no 
 ### Demo03: 解构赋值 ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo03))
 ### Demo04: 关于函数 ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo04))
 ### Demo05: Set和Map数据结构 ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo05))
+### Demo06: Iterator和for...of循环 ([source](https://github.com/lianggzone/ecmascript6-demos/tree/master/demo06))
