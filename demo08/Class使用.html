@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class使用</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>Class使用</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        {
+            console.info("=>ES5写法");
+            function Point(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            Point.prototype.toString = function () {
+                return '(' + this.x + ', ' + this.y + ')';
+            };
+
+            let p = new Point(1, 2);
+            console.log(p.toString());
+        }
+
+        {
+            console.info("=>ES6写法");
+            class Point {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                }
+
+                toString() {
+                    return '(' + this.x + ', ' + this.y + ')';
+                }
+            }
+
+            let p = new Point(1, 2);
+            console.log(p.toString());
+        }
+
+        {
+            console.info("=>一个案例");
+            class Person {
+                constructor(realname, nickname) {
+                    this.realname = realname;
+                    this.nickname = nickname;
+                }
+
+                println(){
+                    return "realname: " + this.realname + "; nickname: " + this.nickname;
+                }
+            }
+
+            let p = new Person("梁桂钊", "LiangGzone");
+            console.log(p.println());
+        }
+
+
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [2] Class表达式");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        const person = new class {
+          constructor(name) {
+            this.name = name;
+          }
+
+          sayName() {
+            console.log(this.name);
+          }
+        }('张三');
+
+        person.sayName(); // "张三"
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+</body>
+
+</html>

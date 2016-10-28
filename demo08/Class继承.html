@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class继承</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>Class继承</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        class Person {
+            constructor(realname, nickname) {
+                this.realname = realname;
+                this.nickname = nickname;
+            }
+
+            println(){
+                return "realname: " + this.realname + "; nickname: " + this.nickname;
+            }
+        }
+
+        class SuperMan extends Person {
+
+            constructor(realname, nickname) {
+                super(realname, nickname);
+            }
+
+            constructor(realname, nickname, desp) {
+                super(realname, nickname);
+                this.desp = desp;
+            }
+
+            println(){
+                return "realname: " + this.realname + "; nickname: " + this.nickname + "; desp: " + this.desp;
+            }
+        }
+
+        const superMan = new SuperMan("梁桂钊", "LiangGzone", "I'm a super man");
+        console.log(superMan.println());
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class的静态方法</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>Class的静态方法</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        class Foo {
+            static classMethod() {
+                return 'hello';
+            }
+        }
+
+        console.log(Foo.classMethod()); // 'hello'
+
+        // var foo = new Foo();
+        // console.log(foo.classMethod());
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+</body>
+
+</html>

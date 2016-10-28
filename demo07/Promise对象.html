@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Promise对象</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>Promise对象</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        var stateFunc = function(state) {
+            return new Promise(function(resolve, reject) {
+                console.log('Promise.');
+                if (state === 1){
+                    console.log('Resolve.');
+                    // 将Promise对象的状态从“未完成”变为“成功”（即从Pending变为Resolved），
+                    // 在异步操作成功时调用，并将异步操作的结果，作为参数传递出去
+                    resolve("当前状态：" + state);
+                } else {
+                    console.log('Reject.');
+                    // 将Promise对象的状态从“未完成”变为“失败”（即从Pending变为Rejected），
+                    // 在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+                    reject(new Error('ERROR!!!'));
+                }
+            });
+        }
+
+        console.info("=>正确");
+        stateFunc(1).then(function(value) {
+            console.log(value);
+        }, function(error) {
+            console.error('出错了', error);
+        });
+
+        console.info("=>错误");
+        stateFunc("1").then(function(value) {
+            console.log(value);
+        }, function(error) {
+            console.error('出错了', error);
+        });
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+</body>
+
+</html>

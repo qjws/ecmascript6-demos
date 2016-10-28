@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class的取值和存值</title>
+    <script src="../js/traceur.js"></script>
+    <script src="../js/BrowserSystem.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <h1>Class的取值和存值</h1>
+    <script type="module">
+        console.info("//---------------------------------------------------------------------");
+        console.info("// [1] 基本用法");
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+
+        class Person {
+            // constructor() {}
+
+            get prop() {
+                return 'getter';
+            }
+            set prop(value) {
+                console.log('setter: ' + value);
+            }
+        }
+
+        const person = new Person();
+        person.prop = '梁桂钊';
+
+        console.log(person.prop);
+
+        console.info("//---------------------------------------------------------------------");
+        console.info("");
+    </script>
+
+</body>
+
+</html>
